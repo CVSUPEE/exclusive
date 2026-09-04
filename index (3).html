@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Contact — PACE 3 COROS | CVSPEE</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --muted: #7d7d7d;
+    --green: #145c3b;
+    --green-dark: #0d3f28;
+    --gold-mist: #f4e6b8;
+    --gold: #c9a227;
+    --gold-dark: #a9841c;
+    --card-bg: #ffffff;
+    --line: #e7e2d0;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: "Outfit", Arial, Helvetica, sans-serif;
+    background: radial-gradient(circle at 50% 0%, #ffffff 0%, var(--gold-mist) 100%);
+    color: var(--ink);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 920px;
+    background: var(--card-bg);
+    border-radius: 28px;
+    box-shadow: 0 30px 60px -25px rgba(20, 92, 59, 0.22), 0 2px 8px rgba(0, 0, 0, 0.04);
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    overflow: hidden;
+  }
+
+  .panel-form {
+    padding: 56px 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+
+  .eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--green);
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.02em;
+  }
+
+  .eyebrow::before {
+    content: "";
+    width: 18px;
+    height: 2px;
+    background: var(--green);
+    border-radius: 2px;
+  }
+
+  h1 {
+    font-size: 34px;
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+  }
+
+  .sub {
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.6;
+    max-width: 40ch;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 8px;
+  }
+
+  .field {
+    position: relative;
+  }
+
+  .contact-inputs {
+    width: 100%;
+    border: 1.5px solid var(--line);
+    background: #fbfbfb;
+    outline: none;
+    padding: 15px 20px;
+    font-family: inherit;
+    font-weight: 500;
+    font-size: 15px;
+    color: var(--ink);
+    border-radius: 14px;
+    transition: border-color 0.2s ease, background 0.2s ease;
+  }
+
+  textarea.contact-inputs {
+    resize: vertical;
+    min-height: 120px;
+    line-height: 1.5;
+    padding-top: 14px;
+  }
+
+  .contact-inputs::placeholder {
+    color: #a8a8a8;
+  }
+
+  .contact-inputs:focus {
+    border-color: var(--green);
+    background: #fff;
+  }
+
+  .submit-btn {
+    margin-top: 6px;
+    align-self: flex-start;
+    background: var(--green);
+    color: #fff;
+    padding: 14px 32px;
+    border-radius: 100px;
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 15px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    border: 1.5px solid var(--gold);
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.15s ease;
+  }
+
+  .submit-btn:hover {
+    background: var(--green-dark);
+    transform: translateY(-1px);
+  }
+
+  .submit-btn img {
+    height: 13px;
+    filter: brightness(0) invert(1);
+  }
+
+  .panel-media {
+    position: relative;
+    background: linear-gradient(165deg, #fbf6e6 0%, var(--gold-mist) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+  }
+
+  .panel-media::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 20% 15%, rgba(201, 162, 39, 0.18) 0%, transparent 45%),
+      radial-gradient(circle at 85% 85%, rgba(20, 92, 59, 0.12) 0%, transparent 40%);
+  }
+
+  .panel-media img {
+    position: relative;
+    max-width: 100%;
+    max-height: 420px;
+    object-fit: contain;
+    filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.12));
+  }
+
+  .panel-media .tag {
+    position: absolute;
+    top: 28px;
+    left: 28px;
+    background: var(--green);
+    color: var(--gold-mist);
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    padding: 8px 16px;
+    border-radius: 100px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+    border: 1px solid var(--gold);
+  }
+
+  @media (max-width: 800px) {
+    .card {
+      grid-template-columns: 1fr;
+    }
+    .panel-media {
+      order: -1;
+      padding: 32px;
+      min-height: 220px;
+    }
+    .panel-media img {
+      max-height: 220px;
+    }
+    .panel-form {
+      padding: 40px 28px 44px;
+    }
+    h1 {
+      font-size: 28px;
+    }
+  }
+
+  /* Confirm modal */
+  #customConfirm {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(26, 20, 20, 0.55);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 20px;
+  }
+
+  #customConfirm .modal-content {
+    background: #fff;
+    padding: 36px 30px 30px;
+    border-radius: 22px;
+    max-width: 360px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 25px 50px -15px rgba(0, 0, 0, 0.35);
+    font-family: "Outfit", Arial, sans-serif;
+    color: var(--ink);
+  }
+
+  #customConfirm p {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 24px;
+  }
+
+  #customConfirm .modal-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  #customConfirm button {
+    padding: 13px 20px;
+    border-radius: 100px;
+    border: none;
+    font-family: inherit;
+    font-size: 15px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: filter 0.2s ease, transform 0.15s ease;
+  }
+
+  #customConfirm button:hover {
+    filter: brightness(0.92);
+    transform: translateY(-1px);
+  }
+
+  #yesBtn {
+    background: var(--green);
+    color: #fff;
+  }
+
+  #noBtn {
+    background: #f2f2f2;
+    color: var(--ink);
+  }
+</style>
+</head>
+<body>
+  <div class="card">
+    <form id="contactForm" action="https://api.web3forms.com/submit" method="POST" class="panel-form">
+      <span class="eyebrow">Contact CVSPEE</span>
+      <h1>PACE 3 COROS</h1>
+      <p class="sub">Questions about the watch — availability, sizing, or delivery? Send us a message and the team will get back to you.</p>
+
+      <input type="hidden" name="access_key" value="96b58191-9cc0-4359-92d3-5de19cec583a" />
+
+      <input type="text" name="name" placeholder="Your name" class="contact-inputs" required />
+      <input type="email" name="email" placeholder="Your email" class="contact-inputs" required />
+      <textarea
+        name="message"
+        placeholder="Tell us your location, contact number, and anything else we should know"
+        class="contact-inputs"
+        required
+      ></textarea>
+
+      <button type="submit" class="submit-btn">
+        Submit <img src="assets/arrow_icon.png" alt="" />
+      </button>
+    </form>
+
+    <div class="panel-media">
+      <span class="tag">PACE 3 · COROS</span>
+      <img src="assets/relo.png" alt="COROS PACE 3 watch" />
+    </div>
+  </div>
+
+  <div id="customConfirm">
+    <div class="modal-content">
+      <p>Do you want to buy?</p>
+      <div class="modal-actions">
+        <button id="yesBtn">Yes, I will buy it</button>
+        <button id="noBtn">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('contactForm');
+    const confirmModal = document.getElementById('customConfirm');
+    const yesBtn = document.getElementById('yesBtn');
+    const noBtn = document.getElementById('noBtn');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      confirmModal.style.display = 'flex';
+    });
+
+    yesBtn.addEventListener('click', function () {
+      confirmModal.style.display = 'none';
+      form.submit();
+    });
+
+    noBtn.addEventListener('click', function () {
+      confirmModal.style.display = 'none';
+    });
+
+    confirmModal.addEventListener('click', function (e) {
+      if (e.target === confirmModal) {
+        confirmModal.style.display = 'none';
+      }
+    });
+  </script>
+</body>
+</html>
